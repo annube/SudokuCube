@@ -29,6 +29,7 @@ set(PROJECT_SOURCES
         CubeModel.h CubeModel.cpp
         CubeFaceModel.h CubeFaceModel.cpp
         ColorModel.h ColorModel.cpp
+        IntVec3d.h IntVec3d.cpp
 )
 
 

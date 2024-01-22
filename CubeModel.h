@@ -2,6 +2,7 @@
 #define CUBEMODEL_H
 
 
+#include "IntVec3d.h"
 #include "qobject.h"
 #include "qtmetamacros.h"
 #include <array>
@@ -44,6 +45,7 @@ public:
 
 
   Q_INVOKABLE void setValue(int x, int y, int z, CubeColors color);
+  Q_INVOKABLE void setValue(QVariant coords, CubeColors color);
   Q_INVOKABLE CubeColors getValue(int x, int y, int z) const;
 
 protected:

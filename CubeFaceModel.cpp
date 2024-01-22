@@ -129,6 +129,8 @@ QVariant CubeFaceModel::data(const QModelIndex& index, int role) const
     auto destPoint = coordFromIndex(index);
     return QVariant::fromValue(_model->getValue(destPoint[0], destPoint[1], destPoint[2]));
   }
+  case ModelIndex:
+    return QVariant::fromValue(index);
   default:
     break;
   }
@@ -144,10 +146,17 @@ QHash<int, QByteArray> CubeFaceModel::roleNames() const
     {XRole, "x"},
     {YRole, "y"},
     {ZRole, "z"},
+    {ModelIndex, "modelIndex"},
   };
 }
 
-IntVec3d CubeFaceModel::coordFromIndex(const QModelIndex& index) const
+IntVec3d CubeFaceModel::coordFromIndex(QVariant index) const
+{
+  auto modelIndex = index.value<QModelIndex>();
+  return {coordFromIndex(index.value<QModelIndex>())};
+}
+
+std::array<int, 3> CubeFaceModel::coordFromIndex(const QModelIndex& index) const
 {
   auto destPoint{dim1Vec};
   boost::geometry::multiply_value(destPoint, index.column());

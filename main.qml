@@ -37,6 +37,9 @@ Window {
                 delegate: ClickableRect{
                     width: 20
                     height: 20
+                    onRectClicked: {
+                        currentColor=model.color;
+                    }
                 }
             }
         }
@@ -52,6 +55,9 @@ Window {
                 Layout.row: 0
                 Layout.column: 1
                 model: cube.getFace(1)
+                onCoordClicked: coord => {
+                    cube.setValue(coord, currentColor)
+                }
             }
             CubeFaceRerpresentation{
                 x:100

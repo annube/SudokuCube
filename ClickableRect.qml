@@ -7,6 +7,8 @@ Rectangle{
     border.color: ColorJS.toColor(model.color)==Qt.color("black")?"white":"black"
     color: ColorJS.toColor(model.color)
 
+    signal rectClicked()
+
     states: State {
         name: "down"; when: mouseArea.pressed == true
         PropertyChanges {
@@ -21,7 +23,7 @@ Rectangle{
         anchors.fill: parent
         hoverEnabled: true
         onClicked: {
-            currentColor=model.color;
+            rectClicked();
         }
     }
 }

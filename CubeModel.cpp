@@ -43,6 +43,12 @@ void CubeModel::setValue(int x, int y, int z, CubeColors color)
   _postChange(x,y,z);
 }
 
+void CubeModel::setValue(QVariant coords, CubeColors color)
+{
+  auto rCoords = coords.value<IntVec3d>();
+  setValue(rCoords[0], rCoords[1], rCoords[2], color);
+}
+
 CubeModel::CubeColors CubeModel::getValue(int x, int y, int z) const
 {
   return _sphereValues[mapFromPhysicalCoordinates(x,y,z)];

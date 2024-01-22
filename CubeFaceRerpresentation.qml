@@ -24,6 +24,9 @@ Item {
                 ClickableRect{
                 implicitHeight: (frame.width-2*table.rowSpacing - 2*table.anchors.margins)/3
                 implicitWidth: (frame.height-2*table.columnSpacing - 2*table.anchors.margins)/3
+                onRectClicked: {
+                    coordClicked(table.model.coordFromIndex(modelIndex));
+                }
             }
         }
     }
