@@ -126,20 +126,7 @@ QVariant CubeFaceModel::data(const QModelIndex& index, int role) const
     return QString("%1, %2").arg(index.column()).arg(index.row());
   case ColorRole:
   {
-//    std::cout << _face << std::endl
-//              << dim1Vec[0] << "," << dim1Vec[1] << "," << dim1Vec[2] << std::endl
-//              << dim2Vec[0] << "," << dim2Vec[1] << "," << dim2Vec[2] << std::endl
-//    << index.row() << "," << index.column() << std::endl;
-    auto destPoint{dim1Vec};
-    boost::geometry::multiply_value(destPoint, index.column());
-    {
-      auto destPointAdd{dim2Vec};
-      boost::geometry::multiply_value(destPointAdd, index.row());
-      boost::geometry::add_point(destPoint, destPointAdd);
-    }
-    boost::geometry::add_point(destPoint, faceVecsOrigin[_face]);
-//    std::cout
-//              << destPoint[0] << "," << destPoint[1] << "," << destPoint[2] << std::endl;
+    auto destPoint = coordFromIndex(index);
     return QVariant::fromValue(_model->getValue(destPoint[0], destPoint[1], destPoint[2]));
   }
   default:
@@ -158,5 +145,18 @@ QHash<int, QByteArray> CubeFaceModel::roleNames() const
     {YRole, "y"},
     {ZRole, "z"},
   };
+}
+
+IntVec3d CubeFaceModel::coordFromIndex(const QModelIndex& index) const
+{
+  auto destPoint{dim1Vec};
+  boost::geometry::multiply_value(destPoint, index.column());
+  {
+    auto destPointAdd{dim2Vec};
+    boost::geometry::multiply_value(destPointAdd, index.row());
+    boost::geometry::add_point(destPoint, destPointAdd);
+  }
+  boost::geometry::add_point(destPoint, faceVecsOrigin[_face]);
+  return {destPoint};
 }
 

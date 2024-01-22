@@ -4,6 +4,7 @@ import "Colors.js" as ColorJS
 
 Item {
     property alias model: table.model
+    signal coordClicked(coord: intvec3d)
     Rectangle {
         id: frame
         anchors.fill: parent
@@ -19,11 +20,10 @@ Item {
             id: table
 
 
-            delegate: Rectangle{
-                border.color: color==Qt.color("black")?"grey":"black";
+            delegate:
+                ClickableRect{
                 implicitHeight: (frame.width-2*table.rowSpacing - 2*table.anchors.margins)/3
                 implicitWidth: (frame.height-2*table.columnSpacing - 2*table.anchors.margins)/3
-                color: ColorJS.toColor(model.color)
             }
         }
     }

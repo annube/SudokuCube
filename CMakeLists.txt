@@ -28,6 +28,7 @@ set(PROJECT_SOURCES
         qml.qrc
         CubeModel.h CubeModel.cpp
         CubeFaceModel.h CubeFaceModel.cpp
+        ColorModel.h ColorModel.cpp
 )
 
 

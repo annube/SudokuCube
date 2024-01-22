@@ -29,8 +29,10 @@ public:
     RED,
     GREEN,
     FREE,
+    NUM_COLORS = FREE,
   };
 
+  Q_ENUM(CubeColors)
   Q_ENUMS(CubeColors);
 
   CubeModel();
