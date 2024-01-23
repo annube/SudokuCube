@@ -4,6 +4,12 @@
 CubeModel::CubeModel()
 {
   std::fill(_sphereValues.begin(), _sphereValues.end(), FREE);
+  setValue(1,1,0, BLACK);
+  setValue(1,1,2, WHITE);
+  setValue(1,0,1,YELLOW);
+  setValue(1,2,1,ORANGE);
+  setValue(0,1,1,LIGHT_BLUE);
+  setValue(2,1,1,BLUE);
 }
 
 boost::signals2::connection CubeModel::registerPreChange(std::function<void (int, int, int)>&& pred)
