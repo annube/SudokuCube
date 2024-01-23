@@ -50,6 +50,7 @@ public:
 protected:
   int mapFromPhysicalCoordinates(int x, int y, int z) const;
   std::array<int, 3> mapToPhysicalCoordinates(int index) const;
+  static bool isCenter(std::array<int, 3> const& point);
 
 
 private:
