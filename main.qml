@@ -59,6 +59,9 @@ Window {
                 Layout.row: 1
                 Layout.column: 1
                 model: cube.getFace(0)
+                onCoordClicked: coord => {
+                    cube.setValue(coord, currentColor)
+                }
             }
             CubeFaceRerpresentation{
                 x:100
@@ -68,6 +71,9 @@ Window {
                 Layout.row: 2
                 Layout.column: 1
                 model: cube.getFace(2)
+                onCoordClicked: coord => {
+                    cube.setValue(coord, currentColor)
+                }
             }
             CubeFaceRerpresentation{
                 x:100
@@ -77,6 +83,9 @@ Window {
                 Layout.row: 3
                 Layout.column: 1
                 model: cube.getFace(3)
+                onCoordClicked: coord => {
+                    cube.setValue(coord, currentColor)
+                }
             }
 
             CubeFaceRerpresentation{
@@ -87,6 +96,9 @@ Window {
                 Layout.row: 1
                 Layout.column: 0
                 model: cube.getFace(5)
+                onCoordClicked: coord => {
+                    cube.setValue(coord, currentColor)
+                }
             }
 
             CubeFaceRerpresentation{
@@ -97,6 +109,9 @@ Window {
                 Layout.row: 1
                 Layout.column: 2
                 model: cube.getFace(4)
+                onCoordClicked: coord => {
+                    cube.setValue(coord, currentColor)
+                }
             }
         }
     }
