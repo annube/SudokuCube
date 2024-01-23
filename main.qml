@@ -14,14 +14,6 @@ Window {
     CubeModel{
         id: cube
         Component.onCompleted: {
-            setValue(0,0,0, CubeModel.BLACK);
-            setValue(0,2,0, CubeModel.WHITE);
-            setValue(2,0,0, CubeModel.YELLOW);
-            setValue(2,2,0, CubeModel.ORANGE);
-            setValue(0,0,2, CubeModel.LIGHT_BLUE);
-            setValue(0,2,2, CubeModel.BLUE);
-            setValue(2,0,2, CubeModel.PURPLE);
-            setValue(2,2,2, CubeModel.RED);
             console.log("CubeModel ready");
         }
     }
