@@ -111,3 +111,13 @@ std::array<int, 3> FaceCoords::localToGlobalCoord(int x, int y) const
   return {destPoint};
 }
 
+bool FaceCoords::belongsToFace(int x, int y, int z) const
+{
+  return ::belongsToFace(_face, x, y, z);
+}
+
+std::array<int, 2> FaceCoords::getCoords(int x, int y, int z) const
+{
+  return ::getCoords(_face, x, y, z);
+}
+

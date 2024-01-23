@@ -16,7 +16,11 @@ protected:
   std::array<int, 3> dim1Vec;
   std::array<int, 3> dim2Vec;
 
+public:
   std::array<int, 3> localToGlobalCoord(int x, int y) const;
+  bool belongsToFace(int x, int y, int z) const;
+  std::array<int, 2> getCoords(int x, int y, int z) const;
+
 
 };
 
