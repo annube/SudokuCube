@@ -44,7 +44,6 @@ public:
   Q_INVOKABLE CubeFaceModel* getFace(int face);
 
 
-  Q_INVOKABLE void setValue(int x, int y, int z, CubeColors color);
   Q_INVOKABLE void setValue(QVariant coords, CubeColors color);
   Q_INVOKABLE CubeColors getValue(int x, int y, int z) const;
 
@@ -54,6 +53,7 @@ protected:
 
 
 private:
+  Q_INVOKABLE void setValue(int x, int y, int z, CubeColors color);
   std::array<CubeColors, 27> _sphereValues;
   boost::signals2::signal<void(int, int, int)> _preChange;
   boost::signals2::signal<void(int, int, int)> _postChange;
