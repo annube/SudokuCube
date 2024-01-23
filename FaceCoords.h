@@ -1,5 +1,5 @@
-#ifndef CUBEFACEMODEL_H
-#define CUBEFACEMODEL_H
+#ifndef FACECOORDS_H
+#define FACECOORDS_H
 
 #include <array>
 
@@ -20,4 +20,4 @@ protected:
 
 };
 
-#endif // CUBEFACEMODEL_H
+#endif // FACECOORDS_H
