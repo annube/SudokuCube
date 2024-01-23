@@ -25,7 +25,7 @@ QVariant ColorModel::headerData(int section, Qt::Orientation orientation, int ro
 
 int ColorModel::rowCount(const QModelIndex &parent) const
 {
-  return CubeModel::NUM_COLORS;
+  return CubeModel::NUM_COLORS+1;
 }
 
 QVariant ColorModel::data(const QModelIndex &index, int role) const
