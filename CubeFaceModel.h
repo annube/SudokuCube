@@ -5,6 +5,7 @@
 #include <QtQml/qqmlregistration.h>
 #include <QAbstractTableModel>
 #include <array>
+#include "FaceCoords.h"
 
 class CubeModel;
 
@@ -25,10 +26,8 @@ private:
   };
   int _face;
   CubeModel* _model;
-  std::array<int, 3> dim1Vec;
-  std::array<int, 3> dim2Vec;
 
-  std::array<int, 3> coordFromIndex(QModelIndex const& index) const;
+  FaceCoords _faceCoords;
 
 public:
   virtual int rowCount(const QModelIndex& parent) const override;

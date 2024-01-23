@@ -30,6 +30,7 @@ set(PROJECT_SOURCES
         CubeFaceModel.h CubeFaceModel.cpp
         ColorModel.h ColorModel.cpp
         IntVec3d.h IntVec3d.cpp
+        FaceCoords.h FaceCoords.cpp
 )
 
 
