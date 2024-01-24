@@ -2,7 +2,6 @@
 #define CUBEMODEL_H
 
 
-#include "IntVec3d.h"
 #include "qobject.h"
 #include "qtmetamacros.h"
 #include <array>
