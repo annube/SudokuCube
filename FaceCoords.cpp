@@ -121,3 +121,8 @@ std::array<int, 2> FaceCoords::getCoords(int x, int y, int z) const
   return ::getCoords(_face, x, y, z);
 }
 
+std::array<int, 3> FaceCoords::faceVariantEdgeCoord(int variant) const
+{
+
+}
+
