@@ -18,7 +18,7 @@ CubeFaceModel::CubeFaceModel(CubeModel* model, int face, QObject *parent)
   model->registerPostChange([this](int x, int y, int z){
     if(_faceCoords.belongsToFace(x, y, z)){
       auto coords = _faceCoords.getCoords(x, y, z);
-      auto changedIndex = index(coords[1], coords[0]);
+      auto changedIndex = index(2-coords[1], coords[0]);
       dataChanged(changedIndex, changedIndex);
     }
   });
@@ -71,7 +71,7 @@ QHash<int, QByteArray> CubeFaceModel::roleNames() const
 IntVec3d CubeFaceModel::coordFromIndex(QVariant index) const
 {
   auto modelIndex = index.value<QModelIndex>();
-  return {_faceCoords.localToGlobalCoord(modelIndex.column(), modelIndex.row())};
+  return {_faceCoords.localToGlobalCoord(modelIndex.column(), 2-modelIndex.row())};
 }
 
 
