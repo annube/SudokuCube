@@ -40,8 +40,6 @@ Window {
             rowSpacing: 5
             columnSpacing: 5
             CubeFaceRerpresentation{
-                x:100
-                y: 0
                 width: 100
                 height: 100
                 Layout.row: 0
@@ -52,8 +50,6 @@ Window {
                 }
             }
             CubeFaceRerpresentation{
-                x:100
-                y: 100
                 width: 100
                 height: 100
                 Layout.row: 1
@@ -64,8 +60,6 @@ Window {
                 }
             }
             CubeFaceRerpresentation{
-                x:100
-                y: 200
                 width: 100
                 height: 100
                 Layout.row: 2
@@ -76,8 +70,6 @@ Window {
                 }
             }
             CubeFaceRerpresentation{
-                x:100
-                y: 300
                 width: 100
                 height: 100
                 Layout.row: 3
@@ -89,8 +81,6 @@ Window {
             }
 
             CubeFaceRerpresentation{
-                x:100
-                y: 0
                 width: 100
                 height: 100
                 Layout.row: 1
@@ -102,8 +92,6 @@ Window {
             }
 
             CubeFaceRerpresentation{
-                x:100
-                y: 0
                 width: 100
                 height: 100
                 Layout.row: 1
