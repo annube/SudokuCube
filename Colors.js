@@ -16,7 +16,7 @@ function toColor(cubeModelColor)
     case CubeModel.YELLOW:
         return Qt.color("yellow");
     case CubeModel.ORANGE:
-        return Qt.color("orangered");
+        return Qt.color("orange");
     case CubeModel.LIGHT_BLUE:
         return Qt.color("lightblue");
     case CubeModel.BLUE:
