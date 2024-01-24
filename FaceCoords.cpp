@@ -75,13 +75,10 @@ std::array<int, 3> getCoords(int face, int x, int y, int z)
 {
   std::array<int, 3> result = {0, 0, 0};
   std::array<int, 3> inputVec = {x, y, z};
-  for(int coordIndex = 0; coordIndex <2; ++coordIndex)
+  boost::geometry::subtract_point(inputVec, faceVecsOrigin[face]);
+  for(int coordIndex = 0; coordIndex <3; ++coordIndex)
   {
-    for(int dimIndex = 0; dimIndex < 3; ++dimIndex)
-    {
-      result[coordIndex] += (inputVec[dimIndex]-faceVecsOrigin[face][dimIndex]) * faceVecs[face][coordIndex][dimIndex];
-    }
-
+      result[coordIndex] = boost::geometry::dot_product(inputVec, faceVecs[face][coordIndex]);
   }
   return result;
 }
