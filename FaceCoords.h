@@ -15,11 +15,12 @@ protected:
   int _face;
   std::array<int, 3> dim1Vec;
   std::array<int, 3> dim2Vec;
+  std::array<int, 3> dim3Vec;
 
 public:
-  std::array<int, 3> localToGlobalCoord(int x, int y) const;
+  std::array<int, 3> localToGlobalCoord(int x, int y, int z = 0) const;
   bool belongsToFace(int x, int y, int z) const;
-  std::array<int, 2> getCoords(int x, int y, int z) const;
+  std::array<int, 3> getCoords(int x, int y, int z) const;
   std::array<int, 3> faceVariantEdgeCoord(int variant) const;
 
 

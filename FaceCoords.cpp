@@ -25,13 +25,13 @@ BOOST_GEOMETRY_REGISTER_C_ARRAY_CS(cs::cartesian)
 
 
 
-static int faceVecs[][2][3] = {
-  {{1,0,0},{0,1,0}},
-  {{1,0,0},{0,0,1}},
-  {{1,0,0},{0,0,-1}},
-  {{1,0,0},{0,-1,0}},
-  {{0,0,1},{0,1,0}},
-  {{0,0,-1},{0,1,0}},
+static int faceVecs[][3][3] = {
+  {{1,0,0},{0,1,0},{0,0,1}},
+  {{1,0,0},{0,0,1},{0,-1,0}},
+  {{1,0,0},{0,0,-1},{0,1,0}},
+  {{1,0,0},{0,-1,0},{0,0,-1}},
+  {{0,0,1},{0,1,0},{-1,0,0}},
+  {{0,0,-1},{0,1,0},{1,0,0}},
 };
 
 
@@ -71,9 +71,9 @@ bool belongsToFace(int face, int x, int y, int z)
   throw std::logic_error("Should never happen");
 };
 
-std::array<int, 2> getCoords(int face, int x, int y, int z)
+std::array<int, 3> getCoords(int face, int x, int y, int z)
 {
-  std::array<int, 2> result = {0, 0};
+  std::array<int, 3> result = {0, 0, 0};
   std::array<int, 3> inputVec = {x, y, z};
   for(int coordIndex = 0; coordIndex <2; ++coordIndex)
   {
@@ -95,16 +95,22 @@ FaceCoords::FaceCoords(int face)
 
   std::copy(faceVecs[_face][0], faceVecs[_face][0]+3, dim1Vec.data());
   std::copy(faceVecs[_face][1], faceVecs[_face][1]+3, dim2Vec.data());
+  std::copy(faceVecs[_face][2], faceVecs[_face][2]+3, dim3Vec.data());
 
 }
 
-std::array<int, 3> FaceCoords::localToGlobalCoord(int x, int y) const
+std::array<int, 3> FaceCoords::localToGlobalCoord(int x, int y, int z) const
 {
   auto destPoint{dim1Vec};
   boost::geometry::multiply_value(destPoint, x);
   {
     auto destPointAdd{dim2Vec};
     boost::geometry::multiply_value(destPointAdd, y);
+    boost::geometry::add_point(destPoint, destPointAdd);
+  }
+  {
+    auto destPointAdd{dim3Vec};
+    boost::geometry::multiply_value(destPointAdd, z);
     boost::geometry::add_point(destPoint, destPointAdd);
   }
   boost::geometry::add_point(destPoint, faceVecsOrigin[_face]);
@@ -116,7 +122,7 @@ bool FaceCoords::belongsToFace(int x, int y, int z) const
   return ::belongsToFace(_face, x, y, z);
 }
 
-std::array<int, 2> FaceCoords::getCoords(int x, int y, int z) const
+std::array<int, 3> FaceCoords::getCoords(int x, int y, int z) const
 {
   return ::getCoords(_face, x, y, z);
 }
