@@ -1,5 +1,6 @@
 #include "VariantModel.h"
 #include "CubeModel.h"
+#include <iostream>
 #include <set>
 
 VariantModel::VariantModel(CubeModel* cubeModel, int numVariants, CubeModel::CubeColors color, QObject *parent)
@@ -31,7 +32,7 @@ QVariant VariantModel::data(const QModelIndex& index, int role) const
     auto coordsWithCenterColor = _cubeModel->getCoordsWithValue(color());
     std::sort(coordsWithCenterColor.begin(), coordsWithCenterColor.end());
 
-    if(coordsWithCenterColor.size()>_variantPieces.size() || !variantFree(index.row()))
+    if(coordsWithCenterColor.size()>_variantPieces[index.row()].size() || !variantFree(index.row()))
     {
       return IMPOSSIBLE;
     }
