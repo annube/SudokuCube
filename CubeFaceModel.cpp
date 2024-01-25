@@ -15,6 +15,8 @@ CubeFaceModel::CubeFaceModel(CubeModel* model, int face, QObject *parent)
 {
 
 
+  _model->setValue(_faceCoords.localToGlobalCoord(1,1), CubeModel::faceCenterColor(_face));
+
   model->registerPostChange([this](int x, int y, int z){
     if(_faceCoords.belongsToFace(x, y, z)){
       auto coords = _faceCoords.getCoords(x, y, z);

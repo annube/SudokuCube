@@ -10,6 +10,7 @@
 #include <QtQml/qqmlregistration.h>
 
 class CubeFaceModel;
+class FaceVariantModel;
 
 class CubeModel: public QObject
 {
@@ -41,10 +42,17 @@ public:
   boost::signals2::connection registerPostChange(std::function<void(int, int, int)>&& pred);
 
   Q_INVOKABLE CubeFaceModel* getFace(int face);
+  Q_INVOKABLE QVariant getFaceVariant(int face);
 
 
   Q_INVOKABLE void setValue(QVariant coords, CubeColors color);
   Q_INVOKABLE CubeColors getValue(int x, int y, int z) const;
+  void setValue(std::array<int, 3> coord, CubeColors color);
+  void setValue(int x, int y, int z, CubeColors color);
+  CubeColors getValue(std::array<int, 3> vec) const;
+  std::vector<std::array<int, 3>> getCoordsWithValue(CubeColors value) const;
+  static CubeColors faceCenterColor(int face);
+  void clearColor(CubeColors value);
 
 protected:
   int mapFromPhysicalCoordinates(int x, int y, int z) const;
@@ -53,7 +61,6 @@ protected:
 
 
 private:
-  Q_INVOKABLE void setValue(int x, int y, int z, CubeColors color);
   std::array<CubeColors, 27> _sphereValues;
   boost::signals2::signal<void(int, int, int)> _preChange;
   boost::signals2::signal<void(int, int, int)> _postChange;
