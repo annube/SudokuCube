@@ -37,98 +37,29 @@ Window {
         }
         GridLayout {
             columns: 4
-            Repeater {
-                width: 100
-                height: 100
-                id: face0VariantRepeater
-                model: cube.getFaceVariant(0);
-                delegate: ClickableRect{
-                    width: 20
-                    height: 20
-                    color: model.possible == FaceVariantModel.POSSIBLE || model.possible == FaceVariantModel.SELECTED ?"black":"grey"
-                    border.width: model.possible == FaceVariantModel.SELECTED ?3:1
-                    border.color: "white"
-                    onRectClicked: {
-                        face0VariantRepeater.model.setVariant(index);
-                    }
 
-                }
+            VariantRepeater{
+                model: cube.getFaceVariant(0)
             }
-            Repeater {
-                width: 100
-                height: 100
-                id: face1VariantRepeater
-                model: cube.getFaceVariant(1);
-                delegate: ClickableRect{
-                    width: 20
-                    height: 20
-                    color: model.possible == FaceVariantModel.POSSIBLE || model.possible == FaceVariantModel.SELECTED ?"orange":"grey"
-                    border.width: model.possible == FaceVariantModel.SELECTED ?3:1
-                    onRectClicked: {
-                        face1VariantRepeater.model.setVariant(index);
-                    }
-                }
+            VariantRepeater{
+                model: cube.getFaceVariant(1)
             }
-            Repeater {
-                width: 100
-                height: 100
-                id: face2VariantRepeater
-                model: cube.getFaceVariant(2);
-                delegate: ClickableRect{
-                    width: 20
-                    height: 20
-                    color: model.possible == FaceVariantModel.POSSIBLE || model.possible == FaceVariantModel.SELECTED ?"yellow":"grey"
-                    border.width: model.possible == FaceVariantModel.SELECTED ?3:1
-                    onRectClicked: {
-                        face2VariantRepeater.model.setVariant(index);
-                    }
-                }
+            VariantRepeater{
+                model: cube.getFaceVariant(2)
             }
-            Repeater {
-                width: 100
-                height: 100
-                id: face3VariantRepeater
-                model: cube.getFaceVariant(3);
-                delegate: ClickableRect{
-                    width: 20
-                    height: 20
-                    color: model.possible == FaceVariantModel.POSSIBLE || model.possible == FaceVariantModel.SELECTED ?"white":"grey"
-                    border.width: model.possible == FaceVariantModel.SELECTED ?3:1
-                    onRectClicked: {
-                        face3VariantRepeater.model.setVariant(index);
-                    }
-                }
+            VariantRepeater{
+                model: cube.getFaceVariant(3)
             }
-            Repeater {
-                width: 100
-                height: 100
-                id: face4VariantRepeater
-                model: cube.getFaceVariant(4);
-                delegate: ClickableRect{
-                    width: 20
-                    height: 20
-                    color: model.possible == FaceVariantModel.POSSIBLE || model.possible == FaceVariantModel.SELECTED ?"blue":"grey"
-                    border.width: model.possible == FaceVariantModel.SELECTED ?3:1
-                    onRectClicked: {
-                        face4VariantRepeater.model.setVariant(index);
-                    }
-                }
+            VariantRepeater{
+                model: cube.getFaceVariant(4)
             }
-            Repeater {
-                width: 100
-                height: 100
-                id: face5VariantRepeater
-                model: cube.getFaceVariant(5);
-                delegate: ClickableRect{
-                    width: 20
-                    height: 20
-                    color: model.possible == FaceVariantModel.POSSIBLE || model.possible == FaceVariantModel.SELECTED ?"lightblue":"grey"
-                    border.width: model.possible == FaceVariantModel.SELECTED ?3:1
-                    onRectClicked: {
-                        face5VariantRepeater.model.setVariant(index);
-                    }
-                }
+            VariantRepeater{
+                model: cube.getFaceVariant(5)
             }
+            VariantRepeater{
+                model: cube.getEdgeVariant(CubeModel.RED);
+            }
+
         }
 
         GridLayout{

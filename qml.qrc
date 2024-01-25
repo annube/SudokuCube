@@ -4,5 +4,6 @@
         <file>CubeFaceRerpresentation.qml</file>
         <file>Colors.js</file>
         <file>ClickableRect.qml</file>
+        <file>VariantRepeater.qml</file>
     </qresource>
 </RCC>
