@@ -1,6 +1,7 @@
 #include "FaceVariantModel.h"
 #include "CubeModel.h"
 #include "CubeFaceModel.h"
+#include "EdgeVariantModel.h"
 
 CubeModel::CubeModel()
 {
@@ -33,6 +34,12 @@ QVariant CubeModel::getFaceVariant(int face)
 {
   auto result = new FaceVariantModel(this, face, this);
   return QVariant::fromValue<FaceVariantModel*>(result);
+}
+
+QVariant CubeModel::getEdgeVariant(CubeColors color)
+{
+  auto result = new EdgeVariantModel(this, RED, this);
+  return QVariant::fromValue<EdgeVariantModel*>(result);
 }
 
 

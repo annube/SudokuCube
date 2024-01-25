@@ -11,6 +11,7 @@
 
 class CubeFaceModel;
 class FaceVariantModel;
+class EdgeVariantModel;
 
 class CubeModel: public QObject
 {
@@ -43,6 +44,7 @@ public:
 
   Q_INVOKABLE CubeFaceModel* getFace(int face);
   Q_INVOKABLE QVariant getFaceVariant(int face);
+  Q_INVOKABLE QVariant getEdgeVariant(CubeColors color);
 
 
   Q_INVOKABLE void setValue(QVariant coords, CubeColors color);

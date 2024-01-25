@@ -33,6 +33,7 @@ set(PROJECT_SOURCES
         FaceCoords.h FaceCoords.cpp
         VariantModel.h VariantModel.cpp
         FaceVariantModel.h FaceVariantModel.cpp
+        EdgeVariantModel.h EdgeVariantModel.cpp
 )
 
 
