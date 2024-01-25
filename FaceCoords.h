@@ -22,6 +22,7 @@ public:
   bool belongsToFace(int x, int y, int z) const;
   std::array<int, 3> getCoords(int x, int y, int z) const;
   std::array<int, 3> faceVariantEdgeCoord(int variant) const;
+  std::array<int, 3> faceVariantCornerCoord(int variant) const;
 
 
 };

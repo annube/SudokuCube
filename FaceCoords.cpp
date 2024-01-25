@@ -126,6 +126,33 @@ std::array<int, 3> FaceCoords::getCoords(int x, int y, int z) const
 
 std::array<int, 3> FaceCoords::faceVariantEdgeCoord(int variant) const
 {
-
+  switch(variant)
+  {
+  case 0:
+    return localToGlobalCoord(0,0,1);
+  case 1:
+    return localToGlobalCoord(2,0,1);
+  case 2:
+    return localToGlobalCoord(2,2,1);
+  case 3:
+    return localToGlobalCoord(0,2,1);
+  }
+  throw(std::logic_error("Variant must be 0-3"));
 }
 
+
+std::array<int, 3> FaceCoords::faceVariantCornerCoord(int variant) const
+{
+  switch(variant)
+  {
+  case 0:
+    return localToGlobalCoord(2,2,2);
+  case 1:
+    return localToGlobalCoord(0,2,2);
+  case 2:
+    return localToGlobalCoord(0,0,2);
+  case 3:
+    return localToGlobalCoord(2,0,2);
+  }
+  throw(std::logic_error("Variant must be 0-3"));
+}
