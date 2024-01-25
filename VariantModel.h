@@ -2,7 +2,6 @@
 #define VARIANTMODEL_H
 
 #include <QAbstractListModel>
-#include <FaceCoords.h>
 #include <QtQml/qqmlregistration.h>
 #include "CubeModel.h"
 

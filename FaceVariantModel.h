@@ -1,7 +1,6 @@
 #ifndef FACEVARIANTMODEL_H
 #define FACEVARIANTMODEL_H
 
-#include <QAbstractListModel>
 #include <FaceCoords.h>
 #include <QtQml/qqmlregistration.h>
 #include "VariantModel.h"
