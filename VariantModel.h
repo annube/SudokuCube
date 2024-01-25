@@ -35,7 +35,7 @@ public:
   Q_INVOKABLE void setVariant(int variant);
 
   int numVariants() const;
-  CubeModel::CubeColors color() const;
+  Q_INVOKABLE CubeModel::CubeColors color() const;
 
 protected:
   std::vector<std::vector<std::array<int, 3>>> _variantPieces;
