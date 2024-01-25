@@ -31,6 +31,7 @@ set(PROJECT_SOURCES
         ColorModel.h ColorModel.cpp
         IntVec3d.h IntVec3d.cpp
         FaceCoords.h FaceCoords.cpp
+        VariantModel.h VariantModel.cpp
         FaceVariantModel.h FaceVariantModel.cpp
 )
 
