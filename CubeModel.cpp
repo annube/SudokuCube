@@ -38,7 +38,7 @@ QVariant CubeModel::getFaceVariant(int face)
 
 QVariant CubeModel::getEdgeVariant(CubeColors color)
 {
-  auto result = new EdgeVariantModel(this, RED, this);
+  auto result = new EdgeVariantModel(this, color, this);
   return QVariant::fromValue<EdgeVariantModel*>(result);
 }
 
