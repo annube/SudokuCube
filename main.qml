@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
 import sudoku.cube.ex 1.0
 import "Colors.js" as ColorJS
 
@@ -19,23 +20,64 @@ Window {
     }
 
     GridLayout{
-        GridLayout {
-            columns: 3
-            Repeater {
-                width: 20
-                height: 100
-                id: colorRepeater
-                model: colorModel
-                delegate: ClickableRect{
-                    width: 20
+        anchors.fill: parent
+        anchors.margins: 5
+        Rectangle {
+            color: "transparent"
+            implicitWidth: directColoringLayout.implicitWidth + 4
+            implicitHeight: directColoringLayout.implicitHeight + 4
+            border.color: "black"
+            MouseArea{
+                id: directColoringMA
+                anchors.fill: parent
+                hoverEnabled: true
+            }
+            GridLayout {
+                id: directColoringLayout
+                anchors.centerIn: parent
+                anchors.margins: 3
+                columns: 3
+                ToolTip {
+                    delay: 500
+                    id: directColoringTT
+                    text: "Choose a color here and then click somewhere on the mesh to place the color."
+                    parent: parent
+                    visible: directColoringMA.containsMouse
+                }
+                Text {
+                    Layout.preferredWidth: 3*20
+                    text: "Direct coloring"
+                    Layout.columnSpan: 3
+                    wrapMode: Text.WordWrap
+                    elide:  Text.ElideLeft
+
+                }
+                ClickableRect{
+                    Layout.columnSpan: 3
+                    Layout.fillWidth: true
                     height: 20
-                    onRectClicked: {
-                        currentColor=model.color;
+
+                    color: ColorJS.toColor(currentColor)
+                }
+                Repeater {
+                    width: 20
+                    height: 100
+                    id: colorRepeater
+                    model: colorModel
+                    delegate: ClickableRect{
+                        width: 20
+                        height: 20
+                        color: ColorJS.toColor(model.color)
+                        onRectClicked: {
+                            currentColor=model.color;
+                        }
                     }
                 }
             }
         }
         GridLayout {
+            Layout.column: 2
+            Layout.alignment: Qt.AlignTop
             columns: 4
 
             VariantRepeater{
@@ -69,6 +111,8 @@ Window {
         }
 
         GridLayout{
+            Layout.column: 1
+
             rowSpacing: 5
             columnSpacing: 5
             CubeFaceRerpresentation{
