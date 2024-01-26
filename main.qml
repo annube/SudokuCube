@@ -59,6 +59,12 @@ Window {
             VariantRepeater{
                 model: cube.getEdgeVariant(CubeModel.RED);
             }
+            VariantRepeater{
+                model: cube.getEdgeVariant(CubeModel.PURPLE);
+            }
+            VariantRepeater{
+                model: cube.getCornerVariant(CubeModel.GREEN);
+            }
 
         }
 
