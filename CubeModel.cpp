@@ -1,3 +1,4 @@
+#include "CornerVariantModel.h"
 #include "FaceVariantModel.h"
 #include "CubeModel.h"
 #include "CubeFaceModel.h"
@@ -40,6 +41,12 @@ QVariant CubeModel::getEdgeVariant(CubeColors color)
 {
   auto result = new EdgeVariantModel(this, color, this);
   return QVariant::fromValue<EdgeVariantModel*>(result);
+}
+
+QVariant CubeModel::getCornerVariant(CubeColors color)
+{
+  auto result = new CornerVariantModel(this, color, this);
+  return QVariant::fromValue<CornerVariantModel*>(result);
 }
 
 

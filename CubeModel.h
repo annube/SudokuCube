@@ -45,6 +45,7 @@ public:
   Q_INVOKABLE CubeFaceModel* getFace(int face);
   Q_INVOKABLE QVariant getFaceVariant(int face);
   Q_INVOKABLE QVariant getEdgeVariant(CubeColors color);
+  Q_INVOKABLE QVariant getCornerVariant(CubeColors color);
 
 
   Q_INVOKABLE void setValue(QVariant coords, CubeColors color);

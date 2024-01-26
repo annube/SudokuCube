@@ -34,6 +34,7 @@ set(PROJECT_SOURCES
         VariantModel.h VariantModel.cpp
         FaceVariantModel.h FaceVariantModel.cpp
         EdgeVariantModel.h EdgeVariantModel.cpp
+        CornerVariantModel.h CornerVariantModel.cpp
 )
 
 
