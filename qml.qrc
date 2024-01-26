@@ -5,5 +5,6 @@
         <file>Colors.js</file>
         <file>ClickableRect.qml</file>
         <file>VariantRepeater.qml</file>
+        <file>icons/SudokuCube.ico</file>
     </qresource>
 </RCC>

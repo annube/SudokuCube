@@ -1,4 +1,5 @@
 #include <QGuiApplication>
+#include <QIcon>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "ColorModel.h"
@@ -10,6 +11,7 @@ int main(int argc, char *argv[])
   QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
   QGuiApplication app(argc, argv);
+  app.setWindowIcon(QIcon(":/icons/SudokuCube.ico"));
 
   QQmlApplicationEngine engine;
 
