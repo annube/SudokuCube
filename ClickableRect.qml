@@ -4,7 +4,7 @@ import "Colors.js" as ColorJS
 
 Rectangle{
     id: rect
-    border.color: ColorJS.toColor(model.color)==Qt.color("black")?"white":"black"
+    border.color: color==Qt.color("black")?"white":"black"
     color: ColorJS.toColor(model.color)
 
     signal rectClicked()
