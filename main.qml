@@ -9,7 +9,7 @@ Window {
     width: 640
     height: 480
     visible: true
-    title: qsTr("Hello World")
+    title: qsTr("Sudoku Cube Explorer")
     color: "grey"
     property var currentColor: CubeModel.FREE
     CubeModel{
