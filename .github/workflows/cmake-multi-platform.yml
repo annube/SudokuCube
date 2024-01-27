@@ -50,6 +50,11 @@ jobs:
       uses: jurplel/install-qt-action@v3
       with:
         version: '6.5.2'
+    - name: Install boost
+      uses: MarkusJx/install-boost@v2.4.4
+      id: install-boost
+      with:
+        boost_version: 1.82.0
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
@@ -66,7 +71,8 @@ jobs:
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -S ${{ github.workspace }}
-
+      env:
+        BOOST_ROOT: ${{ steps.install-boost.outputs.BOOST_ROOT }}
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
