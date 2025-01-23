@@ -1,0 +1,100 @@
+
+
+* Categorization of Solutions
+
+Without restricting universality, alway consider the white face as starting point.
+
+The nine colors of the cube are (b)lack, (w)hite, (y)ellow, (o)range, (d)ark-lue, (l)ight-blue, (g)reen, (r)ed, and (p)urple
+For the following discussion I assume the following gird:
+
+
+
+               +---+---+---+
+               |   |   |   |  
+               +---+---+---+
+               |   | o |   |  
+               +---+---+---+
+               |   |   |   |  
+               +---+---+---+
+  +---+---+---++---+---+---++---+---+---+
+  |   |   |   ||   |   |   ||   |   |   |  
+  +---+---+---++---+---+---++---+---+---+
+  |   | l |   ||   | b |   ||   | d |   |  
+  +---+---+---++---+---+---++---+---+---+
+  |   |   |   ||   |   |   ||   |   |   |  
+  +---+---+---++---+---+---++---+---+---+
+               +---+---+---+
+               |   |   |   |  
+               +---+---+---+
+               |   | y |   |  
+               +---+---+---+
+               |   |   |   |  
+               +---+---+---+
+               +---+---+---+
+               |   |   |   |  
+               +---+---+---+
+               |   | w |   |  
+               +---+---+---+
+               |   |   |   |  
+               +---+---+---+
+
+
+Adjacent colors: yellow, light-blue, orange, blue
+From this follow the opposite colors: yellow-orange, light-blue-blue, white-black
+
+Generic solution types:
+There are the following distinctions when categorizing solutions:
+
+1. Type: Choose any of four adjacent color pairs as corners on the white face.
+   E.g. orange-blue, yellow-light-blue, ...
+   There are three possible positions to place the two colors on the white face
+   2 adjacent and 1 diagonal placement (here at the example of orange and dark-blue):
+
+         adjacent 1: 
+               +---+---+---+
+               | d |   | o |  
+               +---+---+---+
+               |   | w |   |  
+               +---+---+---+
+               |   |   |   |  
+               +---+---+---+
+         adjacent 2: 
+               +---+---+---+
+               | o |   |   |  
+               +---+---+---+
+               |   | w |   |  
+               +---+---+---+
+               | d |   |   |  
+               +---+---+---+
+         diagonal
+               +---+---+---+
+               |   |   | o |  
+               +---+---+---+
+               |   | w |   |  
+               +---+---+---+
+               | d |   |   |  
+               +---+---+---+
+         
+   It needs to be further clarified how many possible solutions ervery type permits.      
+
+         
+2. Type: Choose two opposite colors.
+   1. The two corners can only be placed diagonally on the face in two different positions:
+
+         diagonal1
+               +---+---+---+
+               | d |   |   |  
+               +---+---+---+
+               |   | w |   |  
+               +---+---+---+
+               |   |   | l |  
+               +---+---+---+
+         diagonal2
+               +---+---+---+
+               |   |   | l |  
+               +---+---+---+
+               |   | w |   |  
+               +---+---+---+
+               | d |   |   |  
+               +---+---+---+
+      
