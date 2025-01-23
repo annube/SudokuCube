@@ -24,7 +24,8 @@ BOOST_GEOMETRY_REGISTER_C_ARRAY_CS(cs::cartesian)
 //
 
 
-
+// this are the local coordinates of each face
+// they are used to transform global to local (face) coordinates
 static int faceVecs[][3][3] = {
   {{1,0,0},{0,1,0},{0,0,1}},
   {{1,0,0},{0,0,1},{0,-1,0}},
@@ -35,6 +36,7 @@ static int faceVecs[][3][3] = {
 };
 
 
+// this specifies where the origin positions are
 static int faceVecsOrigin[][3] = {
   {0,0,0},
   {0,2,0},
