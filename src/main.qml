@@ -11,7 +11,7 @@ Window {
     visible: true
     title: qsTr("Sudoku Cube Explorer")
     color: "grey"
-    property var currentColor: CubeModel.FREE
+    property int currentColor: CubeModel.FREE
     CubeModel{
         id: cube
         Component.onCompleted: {
@@ -23,10 +23,12 @@ Window {
         anchors.fill: parent
         anchors.margins: 5
         Rectangle {
+            Layout.alignment: Qt.AlignTop
             color: "transparent"
-            implicitWidth: directColoringLayout.implicitWidth + 4
-            implicitHeight: directColoringLayout.implicitHeight + 4
+            implicitWidth: directColoringLayout.implicitWidth + 16
+            implicitHeight: directColoringLayout.implicitHeight + 16
             border.color: "black"
+            border.width: 3
             MouseArea{
                 id: directColoringMA
                 anchors.fill: parent
@@ -75,106 +77,128 @@ Window {
                 }
             }
         }
-        GridLayout {
+
+        Rectangle {
             Layout.column: 2
             Layout.alignment: Qt.AlignTop
-            columns: 4
 
-            VariantRepeater{
-                model: cube.getFaceVariant(0)
-            }
-            VariantRepeater{
-                model: cube.getFaceVariant(1)
-            }
-            VariantRepeater{
-                model: cube.getFaceVariant(2)
-            }
-            VariantRepeater{
-                model: cube.getFaceVariant(3)
-            }
-            VariantRepeater{
-                model: cube.getFaceVariant(4)
-            }
-            VariantRepeater{
-                model: cube.getFaceVariant(5)
-            }
-            VariantRepeater{
-                model: cube.getEdgeVariant(CubeModel.RED);
-            }
-            VariantRepeater{
-                model: cube.getEdgeVariant(CubeModel.PURPLE);
-            }
-            VariantRepeater{
-                model: cube.getCornerVariant(CubeModel.GREEN);
-            }
+            color: "transparent"
+            implicitWidth: variantsLayout.implicitWidth + 16
+            implicitHeight: variantsLayout.implicitHeight + 16
+            border.color: "black"
+            border.width: 3
 
+            GridLayout {
+                id: variantsLayout
+                anchors.centerIn: parent
+                columns: 4
+
+                VariantRepeater{
+                    model: cube.getFaceVariant(0)
+                }
+                VariantRepeater{
+                    model: cube.getFaceVariant(1)
+                }
+                VariantRepeater{
+                    model: cube.getFaceVariant(2)
+                }
+                VariantRepeater{
+                    model: cube.getFaceVariant(3)
+                }
+                VariantRepeater{
+                    model: cube.getFaceVariant(4)
+                }
+                VariantRepeater{
+                    model: cube.getFaceVariant(5)
+                }
+                VariantRepeater{
+                    model: cube.getEdgeVariant(CubeModel.RED);
+                }
+                VariantRepeater{
+                    model: cube.getEdgeVariant(CubeModel.PURPLE);
+                }
+                VariantRepeater{
+                    model: cube.getCornerVariant(CubeModel.GREEN);
+                }
+
+            }
         }
 
-        GridLayout{
+        Rectangle {
             Layout.column: 1
 
-            rowSpacing: 5
-            columnSpacing: 5
-            CubeFaceRepresentation{
-                width: 100
-                height: 100
-                Layout.row: 0
-                Layout.column: 1
-                model: cube.getFace(1)
-                onCoordClicked: coord => {
-                    cube.setValue(coord, currentColor)
-                }
-            }
-            CubeFaceRepresentation{
-                width: 100
-                height: 100
-                Layout.row: 1
-                Layout.column: 1
-                model: cube.getFace(0)
-                onCoordClicked: coord => {
-                    cube.setValue(coord, currentColor)
-                }
-            }
-            CubeFaceRepresentation{
-                width: 100
-                height: 100
-                Layout.row: 2
-                Layout.column: 1
-                model: cube.getFace(2)
-                onCoordClicked: coord => {
-                    cube.setValue(coord, currentColor)
-                }
-            }
-            CubeFaceRepresentation{
-                width: 100
-                height: 100
-                Layout.row: 3
-                Layout.column: 1
-                model: cube.getFace(3)
-                onCoordClicked: coord => {
-                    cube.setValue(coord, currentColor)
-                }
-            }
+            color: "transparent"
+            implicitWidth: cubeMeshLayout.implicitWidth + 16
+            implicitHeight: cubeMeshLayout.implicitHeight + 16
+            border.color: "black"
+            border.width: 3
 
-            CubeFaceRepresentation{
-                width: 100
-                height: 100
-                Layout.row: 1
-                Layout.column: 0
-                model: cube.getFace(5)
-                onCoordClicked: coord => {
-                    cube.setValue(coord, currentColor)
+            GridLayout{
+                id: cubeMeshLayout
+                rowSpacing: 5
+                columnSpacing: 5
+                anchors.centerIn: parent
+                CubeFaceRepresentation{
+                    width: 100
+                    height: 100
+                    Layout.row: 0
+                    Layout.column: 1
+                    model: cube.getFace(1)
+                    onCoordClicked: coord => {
+                                        cube.setValue(coord, currentColor)
+                                    }
                 }
-            }
+                CubeFaceRepresentation{
+                    width: 100
+                    height: 100
+                    Layout.row: 1
+                    Layout.column: 1
+                    model: cube.getFace(0)
+                    onCoordClicked: coord => {
+                                        cube.setValue(coord, currentColor)
+                                    }
+                }
+                CubeFaceRepresentation{
+                    width: 100
+                    height: 100
+                    Layout.row: 2
+                    Layout.column: 1
+                    model: cube.getFace(2)
+                    onCoordClicked: coord => {
+                                        cube.setValue(coord, currentColor)
+                                    }
+                }
+                CubeFaceRepresentation{
+                    width: 100
+                    height: 100
+                    Layout.row: 3
+                    Layout.column: 1
+                    model: cube.getFace(3)
+                    onCoordClicked: coord => {
+                                        cube.setValue(coord, currentColor)
+                                    }
+                }
 
-            CubeFaceRepresentation{
-                width: 100
-                height: 100
-                Layout.row: 1
-                Layout.column: 2
-                model: cube.getFace(4)
-                onCoordClicked: coord => {
-                    cube.setValue(coord, currentColor)
+                CubeFaceRepresentation{
+                    width: 100
+                    height: 100
+                    Layout.row: 1
+                    Layout.column: 0
+                    model: cube.getFace(5)
+                    onCoordClicked: coord => {
+                                        cube.setValue(coord, currentColor)
+                                    }
+                }
+
+                CubeFaceRepresentation{
+                    width: 100
+                    height: 100
+                    Layout.row: 1
+                    Layout.column: 2
+                    model: cube.getFace(4)
+                    onCoordClicked: coord => {
+                                        cube.setValue(coord, currentColor)
+                                    }
                 }
             }
         }
