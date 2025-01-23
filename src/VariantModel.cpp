@@ -32,25 +32,16 @@ QVariant VariantModel::data(const QModelIndex& index, int role) const
     auto coordsWithCenterColor = _cubeModel->getCoordsWithValue(color());
     std::sort(coordsWithCenterColor.begin(), coordsWithCenterColor.end());
 
-    if(coordsWithCenterColor.size()>_variantPieces[index.row()].size() || !variantFree(index.row()))
-    {
-      return IMPOSSIBLE;
-    }
-
     if(coordsWithCenterColor == _variantPieces[index.row()])
     {
       return SELECTED;
     }
-
-    std::vector<std::array<int, 3>> commonPieces;
-    std::set_intersection(coordsWithCenterColor.begin(), coordsWithCenterColor.end(), _variantPieces[index.row()].begin(), _variantPieces[index.row()].end(),
-                          std::back_inserter(commonPieces));
-
-    if(commonPieces == coordsWithCenterColor)
+    if(variantFree(index.row()))
     {
       return POSSIBLE;
+    } else {
+      return IMPOSSIBLE;
     }
-    return IMPOSSIBLE;
 
   }
   case ModelIndex:
