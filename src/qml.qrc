@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>CubeFaceRerpresentation.qml</file>
+        <file>CubeFaceRepresentation.qml</file>
         <file>Colors.js</file>
         <file>ClickableRect.qml</file>
         <file>VariantRepeater.qml</file>

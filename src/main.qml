@@ -115,7 +115,7 @@ Window {
 
             rowSpacing: 5
             columnSpacing: 5
-            CubeFaceRerpresentation{
+            CubeFaceRepresentation{
                 width: 100
                 height: 100
                 Layout.row: 0
@@ -125,7 +125,7 @@ Window {
                     cube.setValue(coord, currentColor)
                 }
             }
-            CubeFaceRerpresentation{
+            CubeFaceRepresentation{
                 width: 100
                 height: 100
                 Layout.row: 1
@@ -135,7 +135,7 @@ Window {
                     cube.setValue(coord, currentColor)
                 }
             }
-            CubeFaceRerpresentation{
+            CubeFaceRepresentation{
                 width: 100
                 height: 100
                 Layout.row: 2
@@ -145,7 +145,7 @@ Window {
                     cube.setValue(coord, currentColor)
                 }
             }
-            CubeFaceRerpresentation{
+            CubeFaceRepresentation{
                 width: 100
                 height: 100
                 Layout.row: 3
@@ -156,7 +156,7 @@ Window {
                 }
             }
 
-            CubeFaceRerpresentation{
+            CubeFaceRepresentation{
                 width: 100
                 height: 100
                 Layout.row: 1
@@ -167,7 +167,7 @@ Window {
                 }
             }
 
-            CubeFaceRerpresentation{
+            CubeFaceRepresentation{
                 width: 100
                 height: 100
                 Layout.row: 1
