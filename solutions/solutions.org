@@ -8,7 +8,7 @@ The nine colors of the cube are (b)lack, (w)hite, (y)ellow, (o)range, (d)ark-lue
 For the following discussion I assume the following gird:
 
 
-
+#+begin_src text
                +---+---+---+
                |   |   |   |  
                +---+---+---+
@@ -37,7 +37,7 @@ For the following discussion I assume the following gird:
                +---+---+---+
                |   |   |   |  
                +---+---+---+
-
+#+end_src
 
 Adjacent colors: yellow, light-blue, orange, blue
 From this follow the opposite colors: yellow-orange, light-blue-blue, white-black
@@ -50,7 +50,8 @@ There are the following distinctions when categorizing solutions:
    There are three possible positions to place the two colors on the white face
    2 adjacent and 1 diagonal placement (here at the example of orange and dark-blue):
 
-         adjacent 1: 
+         adjacent 1:
+         #+begin_src text
                +---+---+---+
                | d |   | o |  
                +---+---+---+
@@ -58,7 +59,9 @@ There are the following distinctions when categorizing solutions:
                +---+---+---+
                |   |   |   |  
                +---+---+---+
+         #+end_src
          adjacent 2: 
+         #+begin_src text
                +---+---+---+
                | o |   |   |  
                +---+---+---+
@@ -66,7 +69,9 @@ There are the following distinctions when categorizing solutions:
                +---+---+---+
                | d |   |   |  
                +---+---+---+
+         #+end_src
          diagonal
+         #+begin_src text
                +---+---+---+
                |   |   | o |  
                +---+---+---+
@@ -74,6 +79,7 @@ There are the following distinctions when categorizing solutions:
                +---+---+---+
                | d |   |   |  
                +---+---+---+
+         #+end_src
          
    It needs to be further clarified how many possible solutions ervery type permits.      
 
@@ -82,6 +88,7 @@ There are the following distinctions when categorizing solutions:
    1. The two corners can only be placed diagonally on the face in two different positions:
 
          diagonal1
+         #+begin_src text
                +---+---+---+
                | d |   |   |  
                +---+---+---+
@@ -89,7 +96,9 @@ There are the following distinctions when categorizing solutions:
                +---+---+---+
                |   |   | l |  
                +---+---+---+
+         #+end_src
          diagonal2
+         #+begin_src text
                +---+---+---+
                |   |   | l |  
                +---+---+---+
@@ -97,4 +106,5 @@ There are the following distinctions when categorizing solutions:
                +---+---+---+
                | d |   |   |  
                +---+---+---+
+         #+end_src 
       
