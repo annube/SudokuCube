@@ -1,0 +1,14 @@
+| ./color_adj_placement_adj2   |  4 |
+| ./color_adj_placement_adj1   |  4 |
+| ./color_adj_placement_diag   | 10 |
+| ./color_oppo_placement_diag1 |  4 |
+| ./color_oppo_placement_diag2 |  4 |
+|------------------------------+----|
+|                              | 36 |
+|                              |    |
+
+| ./jaapsch_cat1 |  4 |
+| ./jaapsch_cat2 |  6 |
+| ./jaapsch_cat3 | 16 |
+|----------------+----|
+|                |    |
