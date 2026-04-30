@@ -83,7 +83,7 @@ jobs:
         Priority: optional
         Architecture: amd64
         Maintainer: SudokuCube maintainers <maintainers@example.com>
-        Depends: libc6 (>= 2.31), libstdc++6 (>= 10), libqt6core6 (>= 6.2), libqt6gui6 (>= 6.2), libqt6qml6 (>= 6.2), libqt6quick6 (>= 6.2)
+        Depends: libc6 (>= 2.31), libstdc++6 (>= 10), libqt6core6 (>= 6.2), libqt6gui6 (>= 6.2), libqt6qml6 (>= 6.2), libqt6quick6 (>= 6.2), qml6-module-qtquick, qml6-module-qtquick-window, qml6-module-qtquick-layouts, qml6-module-qtquick-controls
         Description: Interactive Sudoku Cube (Molecube) explorer
          Explore and analyze Sudoku Cube solutions with a Qt Quick UI.
         EOF
@@ -103,6 +103,9 @@ jobs:
         URL: https://github.com/${GITHUB_REPOSITORY}
         BuildArch: x86_64
         Source0: sudokucube-root.tar.gz
+        Requires: qt6-qtbase-gui
+        Requires: qt6-qtdeclarative
+        Requires: qt6-qtquickcontrols2
 
         %description
         Explore and analyze Sudoku Cube solutions with a Qt Quick UI.
