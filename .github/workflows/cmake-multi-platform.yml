@@ -30,7 +30,7 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         sudo apt-get update
-        sudo apt-get install -y libboost-all-dev
+        sudo apt-get install -y libboost-all-dev rpm
 
     - name: Install Boost (Windows)
       if: runner.os == 'Windows'
@@ -90,12 +90,57 @@ jobs:
 
         dpkg-deb --build package-root "dist/SudokuCube_${VERSION}_amd64.deb"
 
+        RPM_VERSION="${VERSION//-/_}"
+        mkdir -p rpm/SPECS rpm/SOURCES rpm/BUILD rpm/RPMS rpm/SRPMS rpm/BUILDROOT
+        tar -C package-root -czf rpm/SOURCES/sudokucube-root.tar.gz usr
+
+        cat > rpm/SPECS/sudokucube.spec <<EOF
+        Name: sudokucube
+        Version: ${RPM_VERSION}
+        Release: 1%{?dist}
+        Summary: Interactive Sudoku Cube (Molecube) explorer
+        License: BSL-1.0
+        URL: https://github.com/${GITHUB_REPOSITORY}
+        BuildArch: x86_64
+        Source0: sudokucube-root.tar.gz
+
+        %description
+        Explore and analyze Sudoku Cube solutions with a Qt Quick UI.
+
+        %prep
+        %setup -q -c -T
+        tar -xzf %{SOURCE0} -C .
+
+        %build
+
+        %install
+        mkdir -p %{buildroot}
+        cp -a * %{buildroot}/
+
+        %files
+        /usr/bin/SudokuCube
+
+        %changelog
+        * Thu Apr 30 2026 SudokuCube CI <maintainers@example.com> - ${RPM_VERSION}-1
+        - Automated CI build
+        EOF
+
+        rpmbuild --define "_topdir $PWD/rpm" -bb rpm/SPECS/sudokucube.spec
+        cp rpm/RPMS/x86_64/*.rpm dist/
+
     - name: Upload Debian artifact
       if: runner.os == 'Linux'
       uses: actions/upload-artifact@v4
       with:
         name: SudokuCube-debian-package
         path: dist/*.deb
+
+    - name: Upload Fedora artifact
+      if: runner.os == 'Linux'
+      uses: actions/upload-artifact@v4
+      with:
+        name: SudokuCube-fedora-package
+        path: dist/*.rpm
 
     - name: Package Windows (zip)
       if: runner.os == 'Windows'
